@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 
-ALLOWED_HOSTS = ['https://covid19-by-country.herokuapp.com/']
+ALLOWED_HOSTS = ['covid19-by-country.herokuapp.com']
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
 # Application definition
