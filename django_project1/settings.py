@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -18,12 +20,13 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'n5y6k)fg+6i68at$a2=l#%yg43(#u0f*=ei$@%oiix=77sirfr'
+#SECRET_KEY = 'n5y6k)fg+6i68at$a2=l#%yg43(#u0f*=ei$@%oiix=77sirfr'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://covid19-by-country.herokuapp.com/']
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
 # Application definition
@@ -115,5 +118,4 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, '_staticfiles_')
 STATIC_URL = '/static/'
