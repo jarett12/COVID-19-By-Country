@@ -15,6 +15,7 @@ entrypoints==0.3
 gunicorn==20.0.4
 idna==2.10
 ipykernel==5.3.4
+ipython==7.18.1
 ipython-genutils==0.2.0
 isort==5.4.2
 jedi==0.17.2
@@ -58,6 +59,7 @@ terminado==0.8.3
 testpath==0.4.4
 toml==0.10.1
 tornado==6.0.4
+traitlets==5.0.2
 urllib3==1.25.10
 wcwidth==0.2.5
 webencodings==0.5.1
