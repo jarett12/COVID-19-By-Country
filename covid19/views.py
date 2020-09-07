@@ -33,9 +33,6 @@ context2 = {
     'country': countrylist,
     'deathslist': deathslist
 }
-#print(countrylist)
-print(deathslist)
-
 
 def home(request):
     return render(request , 'covid19/index.html' ,context)
