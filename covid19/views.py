@@ -1,7 +1,6 @@
 from django.shortcuts import render
 import  requests
 
-
 # Create your views here.
 # process data
 data = True
@@ -21,6 +20,25 @@ context = {
     'globalStats' : globalStats ,
     'countries' : countries
 }
+countrylist = []
+deathslist = []
+
+for c in countries:
+    country = c['Country']
+    deaths = c['TotalDeaths']
+    countrylist.append(country)
+    deathslist.append(deaths)
+    
+context2 = {
+    'country': countrylist,
+    'deathslist': deathslist
+}
+#print(countrylist)
+print(deathslist)
+
 
 def home(request):
     return render(request , 'covid19/index.html' ,context)
+
+def charts(request):
+    return render(request, 'covid19/charts.html', context2)

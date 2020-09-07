@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<body>
+    <div class="chart-container">
+        <canvas id="myCanvas"></canvas>
+    </div>
+    <body style="background-color:#121212;">
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<canvas id="myChart" width="600" height="1000"></canvas>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var opt = {
+    events: false,
+    tooltips: {
+        enabled: false
+    },
+    hover: {
+        animationDuration: 0
+    },
+    animation: {
+        duration: 1,
+        onComplete: function () {
+            var chartInstance = this.chart,
+                ctx = chartInstance.ctx;
+            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+
+            this.data.datasets.forEach(function (dataset, i) {
+                var meta = chartInstance.controller.getDatasetMeta(i);
+                meta.data.forEach(function (bar, index) {
+                    var data = dataset.data[index];                            
+                    ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                });
+            });
+        }
+    }
+};
+var myChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+        labels: {{country|safe}},
+        datasets: [{
+            label: '# of Deaths',
+            data: {{deathslist|safe}},
+            backgroundColor: "#e8c3b9",
+            borderWidth: 1
+        }]
+    },
+    options: {
+        hover: {
+            intersect: true
+        },
+        scales: {
+            xAxes:[{
+               barPercentage:.5,
+               maxBarThickness: 100
+            }],
+            yAxes: [{
+                ticks: {
+                    display: true,
+                    autoSkip: false,
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+
+
+});
+</script>
