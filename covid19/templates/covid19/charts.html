@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<div class="topnav">
-    <a class="nav-item nav-link" href="{% url 'Tracker-home' %}">Home</a>
+<div class="navbar">
+    <p style="font-size:30px">
+    <a class="nav-item nav-link" href="{% url 'Tracker-home' %}">Home &nbsp;</a>
     <a class="nav-item nav-link" href="{% url 'Tracker-charts' %}">Charts</a>
   </div>
+  <div class="chart-container">
+      <div style = "position:relative;"></div>
+    <canvas id="myCanvas"></canvas>
+</div>
 <body>
-    <div class="chart-container">
-        <canvas id="myCanvas"></canvas>
-    </div>
     <body style="background-color:#121212;">
 
 </body>
